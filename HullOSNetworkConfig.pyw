@@ -14,13 +14,8 @@ from tkinter.filedialog import asksaveasfilename
 try:
     import serial
 except(ModuleNotFoundError):
-    print("No serial port. This is going to end badly")
-    try:
-        from pip._internal import main as pipmain
-        pipmain(["install", "pyserial"])
-    except:
-        messagebox.showerror("Serial load fail", "Program aborting")
-        exit()
+    messagebox.showerror("serial library missing", "Program aborting")
+    exit()
         
 class NetworkConfig(object):
     '''
